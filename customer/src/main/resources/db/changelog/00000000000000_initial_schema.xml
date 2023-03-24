@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="uuid_type" value="uuid" dbms="postgresql"/>
+
+    <changeSet id="20231019151524" author="roydgar">
+        <createTable tableName="customer">
+            <column name="id" type="${uuid_type}" defaultValueComputed="gen_random_uuid()">
+                <constraints nullable="false" unique="true" />
+            </column>
+
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false" unique="true" />
+            </column>
+
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

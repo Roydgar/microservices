@@ -1,0 +1,39 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: order
+
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/customer_order
+    user: user
+    password: password
+
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5432/customer_order"
+    username: user
+    password: password
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:29092
+
+      function:
+        definition : orderCreatedSupplier;customerVerificationEventConsumer
+      bindings:
+        orderCreatedSupplier-out-0:
+          destination: order-created-event
+        customerVerificationEventConsumer-in-0:
+          destination: customer-verification-event
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - mappings
