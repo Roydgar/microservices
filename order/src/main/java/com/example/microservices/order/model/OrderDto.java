@@ -13,5 +13,6 @@ public class OrderDto {
     private UUID id;
     private UUID customerId;
     private Order.Status status;
+    private Order.CancelReason cancelReason;
     private Instant createdAt;
 }

@@ -14,7 +14,7 @@ import java.util.function.Function;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class OrderEventStreamBinding implements Function<Flux<OrderCreatedEvent>, Flux<CustomerVerificationEvent>> {
+public class OrderEventProcessor implements Function<Flux<OrderCreatedEvent>, Flux<CustomerVerificationEvent>> {
 
     private final CustomerService customerService;
 

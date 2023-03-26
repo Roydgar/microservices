@@ -46,7 +46,7 @@
 		</dependency>
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--			<artifactId>spring-cloud-starter-netflix-eureka-org.example.microservices.client</artifactId>-->
 <!--		</dependency>-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.cloud</groupId>-->

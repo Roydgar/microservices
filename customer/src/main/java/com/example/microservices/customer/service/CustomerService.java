@@ -1,7 +1,7 @@
 package com.example.microservices.customer.service;
 
 import com.example.microservices.customer.exception.CustomerAlreadyExistsException;
-import com.example.microservices.customer.exception.EntityNotFoundException;
+import com.example.microservices.customer.exception.CustomerNotFoundException;
 import com.example.microservices.customer.model.CreateCustomerRequestDto;
 import com.example.microservices.customer.model.Customer;
 import com.example.microservices.customer.repository.CustomerRepository;
@@ -36,7 +36,7 @@ public class CustomerService {
         log.info("Looking for a customer with id {}", id);
 
         return customerRepository.findById(id)
-                .switchIfEmpty(Mono.error(new EntityNotFoundException("Customer with id " + id + " is not found")));
+                .switchIfEmpty(Mono.error(new CustomerNotFoundException("Customer with id " + id + " is not found")));
     }
 
     private Mono<Customer> saveCustomer(CreateCustomerRequestDto customerRequest) {

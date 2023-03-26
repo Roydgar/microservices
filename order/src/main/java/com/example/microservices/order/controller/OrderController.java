@@ -7,12 +7,15 @@ import com.example.microservices.order.service.mapper.OrderMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.UUID;
 
 
 @RestController
@@ -26,6 +29,12 @@ public class OrderController {
     @GetMapping
     public Flux<OrderDto> findAll() {
         return orderService.findAll()
+                .map(orderMapper::mapToDto);
+    }
+
+    @GetMapping("/{id}")
+    public Mono<OrderDto> findById(@PathVariable UUID id) {
+        return orderService.findById(id)
                 .map(orderMapper::mapToDto);
     }
 

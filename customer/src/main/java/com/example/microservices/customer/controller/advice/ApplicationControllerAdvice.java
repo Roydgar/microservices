@@ -1,7 +1,7 @@
 package com.example.microservices.customer.controller.advice;
 
 import com.example.microservices.customer.exception.CustomerAlreadyExistsException;
-import com.example.microservices.customer.exception.EntityNotFoundException;
+import com.example.microservices.customer.exception.CustomerNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,8 +16,8 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @ControllerAdvice
 public class ApplicationControllerAdvice {
 
-    @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleConflict(EntityNotFoundException exception) {
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleConflict(CustomerNotFoundException exception) {
         ErrorResponse responseBody = ErrorResponse.of(exception.getMessage());
 
         return ResponseEntity.status(NOT_FOUND).body(responseBody);

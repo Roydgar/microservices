@@ -13,6 +13,7 @@ public class OrderMapper {
                 .customerId(order.getCustomerId())
                 .createdAt(order.getCreatedAt())
                 .status(order.getStatus())
+                .cancelReason(order.getCancelReason())
                 .build();
     }
 }

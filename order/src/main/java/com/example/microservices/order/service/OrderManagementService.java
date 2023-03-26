@@ -5,7 +5,6 @@ import com.example.microservices.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -18,7 +17,6 @@ import static com.example.microservices.order.model.Order.Status.CONFIRMED;
 public class OrderManagementService {
     private final OrderRepository orderRepository;
 
-    @Transactional
     public void cancelOrder(UUID orderId, Order.CancelReason reason) {
         orderRepository.findById(orderId)
                 .map(order -> {
@@ -34,8 +32,7 @@ public class OrderManagementService {
         this.updateOrderStatus(orderId, CONFIRMED);
     }
 
-    @Transactional
-    private void updateOrderStatus(UUID orderId, Order.Status status) {
+    public void updateOrderStatus(UUID orderId, Order.Status status) {
         orderRepository.findById(orderId)
                 .map(order -> {
                     order.setStatus(status);

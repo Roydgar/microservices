@@ -22,11 +22,11 @@ spring:
           brokers: localhost:29092
 
       function:
-        definition : orderEventStreamBinding
+        definition : orderEventProcessor
       bindings:
-        orderEventStreamBinding-in-0 :
+        orderEventProcessor-in-0 :
           destination: order-created-event
-        orderEventStreamBinding-out-0:
+        orderEventProcessor-out-0:
           destination: customer-verification-event
 
 management:
