@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 import java.util.function.Function;
 
 @Slf4j
-@Component
+@Component("orderEventProcessor")
 @RequiredArgsConstructor
 public class OrderEventProcessor implements Function<Flux<OrderCreatedEvent>, Flux<CustomerVerificationEvent>> {
 

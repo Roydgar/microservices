@@ -16,7 +16,7 @@ public class OrderPublisherConfig {
         return Sinks.many().multicast().onBackpressureBuffer();
     }
 
-    @Bean
+    @Bean("orderCreatedSupplier")
     public Supplier<Flux<OrderCreatedEvent>> orderCreatedSupplier(Sinks.Many<OrderCreatedEvent> sinks){
        return sinks::asFlux;
     }

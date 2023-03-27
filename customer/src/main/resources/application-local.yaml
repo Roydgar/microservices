@@ -1,0 +1,28 @@
+server:
+  port: 8091
+
+spring:
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/customer
+    user: user
+    password: password
+
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5432/customer"
+    username: user
+    password: password
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:29092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - mappings

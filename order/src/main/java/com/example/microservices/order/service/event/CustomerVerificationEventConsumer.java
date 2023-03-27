@@ -11,7 +11,7 @@ import java.util.function.Consumer;
 import static com.example.microservices.order.model.Order.CancelReason.CUSTOMER_VERIFICATION_FAILED;
 
 @Slf4j
-@Component
+@Component("customerVerificationEventConsumer")
 @RequiredArgsConstructor
 public class CustomerVerificationEventConsumer implements Consumer<CustomerVerificationEvent> {
 
