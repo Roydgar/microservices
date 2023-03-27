@@ -11,9 +11,10 @@ public class OrderMapper {
         return OrderDto.builder()
                 .id(order.getId())
                 .customerId(order.getCustomerId())
-                .createdAt(order.getCreatedAt())
                 .status(order.getStatus())
                 .cancelReason(order.getCancelReason())
+                .createdAt(order.getCreatedAt())
+                .updatedAt(order.getUpdatedAt())
                 .build();
     }
 }

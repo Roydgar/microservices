@@ -5,10 +5,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.time.Instant;
 import java.util.UUID;
 
 
@@ -28,5 +32,14 @@ public class Customer {
     private String lastName;
     @Column("email")
     private String email;
+
+    @CreatedDate
+    private Instant createdAt;
+    @Column("updated_at")
+    @LastModifiedDate
+    private Instant updatedAt;
+    @Column("version")
+    @Version
+    private int version;
 
 }

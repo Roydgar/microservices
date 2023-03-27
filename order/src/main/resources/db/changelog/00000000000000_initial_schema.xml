@@ -18,10 +18,6 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="created_at" type="timestamp" defaultValueComputed="current_timestamp">
-                <constraints nullable="false" />
-            </column>
-
             <column name="status" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -30,6 +26,15 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="created_at" type="timestamp with time zone">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_at" type="timestamp with time zone">
+                <constraints nullable="false" />
+            </column>
+            <column name="version" type="integer">
+                <constraints nullable="false" />
+            </column>
 
         </createTable>
 

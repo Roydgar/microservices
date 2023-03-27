@@ -15,4 +15,5 @@ public class OrderDto {
     private Order.Status status;
     private Order.CancelReason cancelReason;
     private Instant createdAt;
+    private Instant updatedAt;
 }
